@@ -1,0 +1,37 @@
+[
+  {
+    "id": "TC01",
+    "type": "direct_query",
+    "question": "Chào bạn, bạn có thể giới thiệu các chức năng mà Trợ lý Đặt Phòng họp & Thiết bị có thể hỗ trợ không?",
+    "expected_behavior": "Agent trả lời trực tiếp dựa trên System Prompt, giới thiệu các chức năng chính như kiểm tra phòng họp, thiết bị, đề xuất phương án phù hợp và hỗ trợ đặt phòng; không cần gọi bất kỳ Tool nào.",
+    "complexity": "Low"
+  },
+  {
+    "id": "TC02",
+    "type": "single_tool_query",
+    "question": "Hãy kiểm tra giúp tôi phòng họp A101 có trống lúc 14:00 ngày 15/09/2026 không?",
+    "expected_behavior": "Agent nhận diện nhu cầu kiểm tra tình trạng phòng và tự động phát sinh Tool Call 'check_room_availability' với đúng mã phòng A101, ngày 15/09/2026 và thời gian 14:00.",
+    "complexity": "Medium"
+  },
+  {
+    "id": "TC03",
+    "type": "room_booking",
+    "question": "Hãy đặt phòng họp A101 cho tôi lúc 14:00 ngày 15/09/2026, thời lượng 2 giờ và cần máy chiếu.",
+    "expected_behavior": "Agent kiểm tra các thông tin cần thiết và tự động phát sinh Tool Call 'book_room' với đúng mã phòng A101, ngày 15/09/2026, thời gian bắt đầu 14:00, thời lượng 2 giờ và yêu cầu máy chiếu.",
+    "complexity": "Medium"
+  },
+  {
+    "id": "TC04",
+    "type": "multi_step_reasoning",
+    "question": "Tôi cần một phòng họp cho 20 người lúc 14:00 ngày 15/09/2026 trong 2 giờ và cần máy chiếu. Hãy tìm phòng phù hợp và đặt giúp tôi.",
+    "expected_behavior": "Agent thực hiện chuỗi xử lý đa bước: xác định các yêu cầu về thời gian, sức chứa và thiết bị; gọi Tool kiểm tra các phòng phù hợp; kiểm tra khả dụng của máy chiếu; lựa chọn phương án đáp ứng yêu cầu và sau đó gọi Tool đặt phòng. Nếu phương án ban đầu không khả dụng, Agent phải tìm và đề xuất phương án thay thế phù hợp thay vì tự bịa đặt dữ liệu.",
+    "complexity": "High"
+  },
+  {
+    "id": "TC05",
+    "type": "edge_case_handling",
+    "question": "Hãy kiểm tra và đặt giúp tôi phòng họp X999 lúc 10:00 ngày 16/09/2026.",
+    "expected_behavior": "Agent gọi Tool kiểm tra phòng X999, nhận kết quả NOT_FOUND hoặc tương đương và phản hồi rõ ràng rằng phòng không tồn tại; không tự bịa đặt thông tin hoặc xác nhận đặt phòng khi chưa có dữ liệu hợp lệ.",
+    "complexity": "Medium"
+  }
+]

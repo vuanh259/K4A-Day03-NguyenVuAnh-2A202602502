@@ -1,29 +1,297 @@
 [
   {
     "step": 1,
-    "query": "Chào bạn, bạn có thể giới thiệu quy chế học vụ cơ bản của Đại học VinUni không?",
-    "action_type": "FINAL_ANSWER",
-    "thought": "Câu hỏi chung về quy chế học vụ, trả lời trực tiếp không cần gọi Tool.",
-    "output": "[Mock Agent Response]: Xin chào! Quy chế học vụ VinUni yêu cầu sinh viên tích lũy tối thiểu 120 tín chỉ và duy trì GPA trên 2.0 để tốt nghiệp.",
-    "latency_ms": 2845.93
-  },
-  {
-    "step": 1,
-    "query": "Hãy tra cứu thông tin học vụ của sinh viên SV2026001.",
+    "query": "Người dùng: tra cứu cho tôi xem chiều ngày 15/09/2026 có phòng nào đang trống,\nTrợ lý: Chiều ngày **15/09/2026**, các phòng họp sau đây đang trống và có thể đăng ký sử dụng:\n\n1. **Phòng A101** (Phòng họp A101)\n   - **Vị trí:** Tầng 1 - Tòa A\n   - **Sức chứa:** 20 người\n   - **Thời gian trống từ:** 13:00\n   - **Thiết bị:** Máy chiếu, Micro, Bảng trắng\n\n2. **Phòng B201** (Phòng họp B201)\n   - **Vị trí:** Tầng 2 - Tòa B\n   - **Sức chứa:** 30 người\n   - **Thời gian trống từ:** 13:00\n   - **Thiết bị:** Máy chiếu, Micro, Loa, Camera hội nghị\n\n3. **Phòng A102** (Phòng họp A102)\n   - **Vị trí:** Tầng 1 - Tòa A\n   - **Sức chứa:** 10 người\n   - **Thời gian trống từ:** 15:00\n   - **Thiết bị:** TV, Bảng trắng\n\nAnh/Chị có muốn đặt phòng nào trong các phòng trên không? Nếu có, vui lòng cho biết mã phòng, khung giờ cụ thể và thời lượng cần đặt.\nNgười dùng: Tìm cho tôi phòng 20 người có máy chiếu từ 13h đến 15h\nTrợ lý: Từ 13:00 đến 15:00 ngày 15/09/2026, có **2 phòng** đáp ứng đủ yêu cầu (sức chứa từ 20 người và có máy chiếu):\n\n1. **Phòng A101** (Phòng họp A101)\n   - **Vị trí:** Tầng 1 - Tòa A\n   - **Sức chứa:** 20 người\n   - **Khung giờ trống:** 13:00 - 15:00\n   - **Thiết bị:** Máy chiếu, Micro, Bảng trắng\n\n2. **Phòng B201** (Phòng họp B201)\n   - **Vị trí:** Tầng 2 - Tòa B\n   - **Sức chứa:** 30 người\n   - **Khung giờ trống:** 13:00 - 15:00\n   - **Thiết bị:** Máy chiếu, Micro, Loa, Camera hội nghị\n\nAnh/Chị có muốn đặt phòng nào trong hai phòng trên không? Nếu có, vui lòng xác nhận để em tiến hành đặt phòng giúp Anh/Chị.\nNgười dùng: vậy bạn đặt cho tôi phòng A101 nhé",
     "action_type": "TOOL_EXECUTION",
-    "tool_name": "academic_query",
+    "tool_name": "book_room",
     "arguments": {
-      "student_id": "SV2026001"
+      "room_id": "A101",
+      "datetime_str": "13:00 15/09/2026",
+      "equipment": [
+        "Máy chiếu"
+      ],
+      "duration_hours": 2
     },
-    "observation": {},
-    "latency_ms": 799.12
+    "observation": {
+      "status": "SUCCESS",
+      "booking_id": "BK-A101-002",
+      "room_id": "A101",
+      "room_name": "Phòng họp A101",
+      "datetime": "13:00 15/09/2026",
+      "duration_hours": 2,
+      "equipment": [
+        "Máy chiếu"
+      ],
+      "message": "Đặt phòng A101 thành công vào lúc 13:00 15/09/2026 trong 2 giờ."
+    },
+    "latency_ms": 4450.78
   },
   {
     "step": 2,
-    "query": "Hãy tra cứu thông tin học vụ của sinh viên SV2026001.",
+    "query": "Người dùng: tra cứu cho tôi xem chiều ngày 15/09/2026 có phòng nào đang trống,\nTrợ lý: Chiều ngày **15/09/2026**, các phòng họp sau đây đang trống và có thể đăng ký sử dụng:\n\n1. **Phòng A101** (Phòng họp A101)\n   - **Vị trí:** Tầng 1 - Tòa A\n   - **Sức chứa:** 20 người\n   - **Thời gian trống từ:** 13:00\n   - **Thiết bị:** Máy chiếu, Micro, Bảng trắng\n\n2. **Phòng B201** (Phòng họp B201)\n   - **Vị trí:** Tầng 2 - Tòa B\n   - **Sức chứa:** 30 người\n   - **Thời gian trống từ:** 13:00\n   - **Thiết bị:** Máy chiếu, Micro, Loa, Camera hội nghị\n\n3. **Phòng A102** (Phòng họp A102)\n   - **Vị trí:** Tầng 1 - Tòa A\n   - **Sức chứa:** 10 người\n   - **Thời gian trống từ:** 15:00\n   - **Thiết bị:** TV, Bảng trắng\n\nAnh/Chị có muốn đặt phòng nào trong các phòng trên không? Nếu có, vui lòng cho biết mã phòng, khung giờ cụ thể và thời lượng cần đặt.\nNgười dùng: Tìm cho tôi phòng 20 người có máy chiếu từ 13h đến 15h\nTrợ lý: Từ 13:00 đến 15:00 ngày 15/09/2026, có **2 phòng** đáp ứng đủ yêu cầu (sức chứa từ 20 người và có máy chiếu):\n\n1. **Phòng A101** (Phòng họp A101)\n   - **Vị trí:** Tầng 1 - Tòa A\n   - **Sức chứa:** 20 người\n   - **Khung giờ trống:** 13:00 - 15:00\n   - **Thiết bị:** Máy chiếu, Micro, Bảng trắng\n\n2. **Phòng B201** (Phòng họp B201)\n   - **Vị trí:** Tầng 2 - Tòa B\n   - **Sức chứa:** 30 người\n   - **Khung giờ trống:** 13:00 - 15:00\n   - **Thiết bị:** Máy chiếu, Micro, Loa, Camera hội nghị\n\nAnh/Chị có muốn đặt phòng nào trong hai phòng trên không? Nếu có, vui lòng xác nhận để em tiến hành đặt phòng giúp Anh/Chị.\nNgười dùng: vậy bạn đặt cho tôi phòng A101 nhé",
     "action_type": "FINAL_ANSWER",
-    "thought": "Tổng hợp kết quả từ MCP Server thành công.",
-    "output": "Chưa thể trả lời chi tiết do chưa nhận được dữ liệu từ MCP Server (hãy hoàn thành TODO 2.1).",
-    "latency_ms": 10.0
+    "thought": "Gemini phản hồi trực tiếp bằng văn bản (không cần gọi công cụ).",
+    "output": "Dạ, em đã đặt thành công **Phòng A101** cho Anh/Chị với thông tin chi tiết như sau:\n\n- **Mã đặt phòng (Booking ID):** BK-A101-002  \n- **Phòng đặt:** Phòng họp A101 (Tầng 1 - Tòa A)  \n- **Thời gian:** 13:00 - 15:00 ngày 15/09/2026 (Thời lượng: 2 giờ)  \n- **Sức chứa:** 20 người  \n- **Thiết bị kèm theo:** Máy chiếu  \n\nNếu cần hỗ trợ thêm thông tin hoặc thay đổi gì khác, Anh/Chị cứ báo em nhé!",
+    "latency_ms": 4029.96
+  },
+  {
+    "step": 1,
+    "query": "Người dùng: kiểm tra cho tôi chiều nay 15/9/2026 có thiết bị máy chiếu nào có sẵn để mượn không",
+    "action_type": "TOOL_EXECUTION",
+    "tool_name": "find_available_rooms",
+    "arguments": {
+      "date": "15/09/2026",
+      "end_time": "17:00",
+      "equipment": [
+        "Máy chiếu"
+      ],
+      "start_time": "13:00",
+      "duration_hours": 1
+    },
+    "observation": {
+      "status": "SUCCESS",
+      "date": "15/09/2026",
+      "search_start": "13:00",
+      "search_end": "17:00",
+      "duration_hours": 1,
+      "capacity": 0,
+      "required_equipment": [
+        "Máy chiếu"
+      ],
+      "rooms": [
+        {
+          "room_id": "A101",
+          "room_name": "Phòng họp A101",
+          "capacity": 20,
+          "location": "Tầng 1 - Tòa A",
+          "equipment": [
+            "Máy chiếu",
+            "Micro",
+            "Bảng trắng"
+          ],
+          "available_start": "13:00",
+          "date": "15/09/2026",
+          "duration_hours": 1
+        },
+        {
+          "room_id": "B201",
+          "room_name": "Phòng họp B201",
+          "capacity": 30,
+          "location": "Tầng 2 - Tòa B",
+          "equipment": [
+            "Máy chiếu",
+            "Micro",
+            "Loa",
+            "Camera hội nghị"
+          ],
+          "available_start": "13:00",
+          "date": "15/09/2026",
+          "duration_hours": 1
+        }
+      ],
+      "message": "Tìm thấy 2 phòng phù hợp."
+    },
+    "latency_ms": 5791.03
+  },
+  {
+    "step": 2,
+    "query": "Người dùng: kiểm tra cho tôi chiều nay 15/9/2026 có thiết bị máy chiếu nào có sẵn để mượn không",
+    "action_type": "FINAL_ANSWER",
+    "thought": "Gemini phản hồi trực tiếp bằng văn bản (không cần gọi công cụ).",
+    "output": "Chiều chiều ngày **15/09/2026** (khung giờ từ 13:00 đến 17:00), hiện có **2 phòng họp có sẵn máy chiếu** mà bạn có thể đặt/mượn sử dụng:\n\n1. **Phòng A101** (Tầng 1 - Tòa A)\n   - **Sức chứa:** 20 người\n   - **Thiết bị có sẵn:** Máy chiếu, Micro, Bảng trắng\n   - **Khung giờ trống:** Từ 13:00\n\n2. **Phòng B201** (Tầng 2 - Tòa B)\n   - **Sức chứa:** 30 người\n   - **Thiết bị có sẵn:** Máy chiếu, Micro, Loa, Camera hội nghị\n   - **Khung giờ trống:** Từ 13:00\n\nNếu bạn muốn tiến hành đặt phòng nào, vui lòng cho tôi biết **mã phòng** và **thời gian cụ thể** (thời điểm bắt đầu & thời lượng sử dụng) để tôi hỗ trợ đặt phòng cho bạn nhé!",
+    "latency_ms": 5187.8
+  },
+  {
+    "step": 1,
+    "query": "Người dùng: kiểm tra cho tôi chiều nay 15/9/2026 có thiết bị máy chiếu nào có sẵn để mượn không\nTrợ lý: Chiều chiều ngày **15/09/2026** (khung giờ từ 13:00 đến 17:00), hiện có **2 phòng họp có sẵn máy chiếu** mà bạn có thể đặt/mượn sử dụng:\n\n1. **Phòng A101** (Tầng 1 - Tòa A)\n   - **Sức chứa:** 20 người\n   - **Thiết bị có sẵn:** Máy chiếu, Micro, Bảng trắng\n   - **Khung giờ trống:** Từ 13:00\n\n2. **Phòng B201** (Tầng 2 - Tòa B)\n   - **Sức chứa:** 30 người\n   - **Thiết bị có sẵn:** Máy chiếu, Micro, Loa, Camera hội nghị\n   - **Khung giờ trống:** Từ 13:00\n\nNếu bạn muốn tiến hành đặt phòng nào, vui lòng cho tôi biết **mã phòng** và **thời gian cụ thể** (thời điểm bắt đầu & thời lượng sử dụng) để tôi hỗ trợ đặt phòng cho bạn nhé!\nNgười dùng: vậy đặt cho tôi phòng có sức chứa 30 người",
+    "action_type": "FINAL_ANSWER",
+    "thought": "Gemini phản hồi trực tiếp bằng văn bản (không cần gọi công cụ).",
+    "output": "Dạ, phòng có sức chứa 30 người là **Phòng B201**.\n\nĐể hoàn tất việc đặt phòng cho bạn vào **chiều ngày 15/09/2026**, vui lòng cung cấp thêm:\n1. **Thời gian bắt đầu cụ thể** (ví dụ: 13:00, 14:00,...)\n2. **Thời lượng sử dụng** (ví dụ: 1 giờ, 2 giờ,...)\n\nNgay khi có thêm thông tin, tôi sẽ tiến hành đặt phòng B201 giúp bạn!",
+    "latency_ms": 7290.94
+  },
+  {
+    "step": 1,
+    "query": "Người dùng: kiểm tra cho tôi chiều nay 15/9/2026 có thiết bị máy chiếu nào có sẵn để mượn không\nTrợ lý: Chiều chiều ngày **15/09/2026** (khung giờ từ 13:00 đến 17:00), hiện có **2 phòng họp có sẵn máy chiếu** mà bạn có thể đặt/mượn sử dụng:\n\n1. **Phòng A101** (Tầng 1 - Tòa A)\n   - **Sức chứa:** 20 người\n   - **Thiết bị có sẵn:** Máy chiếu, Micro, Bảng trắng\n   - **Khung giờ trống:** Từ 13:00\n\n2. **Phòng B201** (Tầng 2 - Tòa B)\n   - **Sức chứa:** 30 người\n   - **Thiết bị có sẵn:** Máy chiếu, Micro, Loa, Camera hội nghị\n   - **Khung giờ trống:** Từ 13:00\n\nNếu bạn muốn tiến hành đặt phòng nào, vui lòng cho tôi biết **mã phòng** và **thời gian cụ thể** (thời điểm bắt đầu & thời lượng sử dụng) để tôi hỗ trợ đặt phòng cho bạn nhé!\nNgười dùng: vậy đặt cho tôi phòng có sức chứa 30 người\nTrợ lý: Dạ, phòng có sức chứa 30 người là **Phòng B201**.\n\nĐể hoàn tất việc đặt phòng cho bạn vào **chiều ngày 15/09/2026**, vui lòng cung cấp thêm:\n1. **Thời gian bắt đầu cụ thể** (ví dụ: 13:00, 14:00,...)\n2. **Thời lượng sử dụng** (ví dụ: 1 giờ, 2 giờ,...)\n\nNgay khi có thêm thông tin, tôi sẽ tiến hành đặt phòng B201 giúp bạn!\nNgười dùng: đặt cho tôi bắt đầu từ 13h nhé, tôi muốn dùng trong 2 tiếng",
+    "action_type": "TOOL_EXECUTION",
+    "tool_name": "book_room",
+    "arguments": {
+      "datetime_str": "13:00 15/09/2026",
+      "room_id": "B201",
+      "equipment": [
+        "Máy chiếu"
+      ],
+      "duration_hours": 2
+    },
+    "observation": {
+      "status": "SUCCESS",
+      "booking_id": "BK-B201-001",
+      "room_id": "B201",
+      "room_name": "Phòng họp B201",
+      "datetime": "13:00 15/09/2026",
+      "duration_hours": 2,
+      "equipment": [
+        "Máy chiếu"
+      ],
+      "message": "Đặt phòng B201 thành công vào lúc 13:00 15/09/2026 trong 2 giờ."
+    },
+    "latency_ms": 4442.52
+  },
+  {
+    "step": 2,
+    "query": "Người dùng: kiểm tra cho tôi chiều nay 15/9/2026 có thiết bị máy chiếu nào có sẵn để mượn không\nTrợ lý: Chiều chiều ngày **15/09/2026** (khung giờ từ 13:00 đến 17:00), hiện có **2 phòng họp có sẵn máy chiếu** mà bạn có thể đặt/mượn sử dụng:\n\n1. **Phòng A101** (Tầng 1 - Tòa A)\n   - **Sức chứa:** 20 người\n   - **Thiết bị có sẵn:** Máy chiếu, Micro, Bảng trắng\n   - **Khung giờ trống:** Từ 13:00\n\n2. **Phòng B201** (Tầng 2 - Tòa B)\n   - **Sức chứa:** 30 người\n   - **Thiết bị có sẵn:** Máy chiếu, Micro, Loa, Camera hội nghị\n   - **Khung giờ trống:** Từ 13:00\n\nNếu bạn muốn tiến hành đặt phòng nào, vui lòng cho tôi biết **mã phòng** và **thời gian cụ thể** (thời điểm bắt đầu & thời lượng sử dụng) để tôi hỗ trợ đặt phòng cho bạn nhé!\nNgười dùng: vậy đặt cho tôi phòng có sức chứa 30 người\nTrợ lý: Dạ, phòng có sức chứa 30 người là **Phòng B201**.\n\nĐể hoàn tất việc đặt phòng cho bạn vào **chiều ngày 15/09/2026**, vui lòng cung cấp thêm:\n1. **Thời gian bắt đầu cụ thể** (ví dụ: 13:00, 14:00,...)\n2. **Thời lượng sử dụng** (ví dụ: 1 giờ, 2 giờ,...)\n\nNgay khi có thêm thông tin, tôi sẽ tiến hành đặt phòng B201 giúp bạn!\nNgười dùng: đặt cho tôi bắt đầu từ 13h nhé, tôi muốn dùng trong 2 tiếng",
+    "action_type": "FINAL_ANSWER",
+    "thought": "Gemini phản hồi trực tiếp bằng văn bản (không cần gọi công cụ).",
+    "output": "Tôi đã đặt phòng họp thành công cho bạn! Dưới đây là thông tin chi tiết đặt phòng:\n\n- **Mã đặt phòng:** BK-B201-001\n- **Phòng:** B201 (Phòng họp B201 - Sức chứa 30 người)\n- **Thời gian bắt đầu:** 13:00 ngày 15/09/2026\n- **Thời lượng sử dụng:** 2 tiếng (đến 15:00)\n- **Thiết bị kèm theo:** Máy chiếu\n\nNếu cần hỗ trợ thêm thông tin hoặc thay đổi lịch đặt phòng, bạn cứ báo cho tôi nhé!",
+    "latency_ms": 3617.51
+  },
+  {
+    "step": 1,
+    "query": "kiểm tra cho tôi xem chiều ngày 15/9/2026 có phòng nào trống không",
+    "action_type": "TOOL_EXECUTION",
+    "tool_name": "find_available_rooms",
+    "arguments": {
+      "end_time": "17:00",
+      "start_time": "13:00",
+      "date": "15/09/2026",
+      "duration_hours": 1
+    },
+    "observation": {
+      "status": "SUCCESS",
+      "date": "15/09/2026",
+      "search_start": "13:00",
+      "search_end": "17:00",
+      "duration_hours": 1,
+      "capacity": 0,
+      "required_equipment": [],
+      "rooms": [
+        {
+          "room_id": "A101",
+          "room_name": "Phòng họp A101",
+          "capacity": 20,
+          "location": "Tầng 1 - Tòa A",
+          "equipment": [
+            "Máy chiếu",
+            "Micro",
+            "Bảng trắng"
+          ],
+          "available_start": "13:00",
+          "date": "15/09/2026",
+          "duration_hours": 1
+        },
+        {
+          "room_id": "B201",
+          "room_name": "Phòng họp B201",
+          "capacity": 30,
+          "location": "Tầng 2 - Tòa B",
+          "equipment": [
+            "Máy chiếu",
+            "Micro",
+            "Loa",
+            "Camera hội nghị"
+          ],
+          "available_start": "13:00",
+          "date": "15/09/2026",
+          "duration_hours": 1
+        },
+        {
+          "room_id": "A102",
+          "room_name": "Phòng họp A102",
+          "capacity": 10,
+          "location": "Tầng 1 - Tòa A",
+          "equipment": [
+            "TV",
+            "Bảng trắng"
+          ],
+          "available_start": "15:00",
+          "date": "15/09/2026",
+          "duration_hours": 1
+        }
+      ],
+      "message": "Tìm thấy 3 phòng phù hợp."
+    },
+    "latency_ms": 6364.5
+  },
+  {
+    "step": 2,
+    "query": "kiểm tra cho tôi xem chiều ngày 15/9/2026 có phòng nào trống không",
+    "action_type": "FINAL_ANSWER",
+    "thought": "Gemini phản hồi trực tiếp bằng văn bản (không cần gọi công cụ).",
+    "output": "Chiều ngày **15/09/2026** (khung giờ từ 13:00 đến 17:00) hiện có **3 phòng trống** phù hợp:\n\n1. **Phòng A101** (Phòng họp A101)\n   - **Vị trí:** Tầng 1 - Tòa A\n   - **Sức chứa:** 20 người\n   - **Thiết bị:** Máy chiếu, Micro, Bảng trắng\n   - **Khung giờ trống:** Từ **13:00**\n\n2. **Phòng B201** (Phòng họp B201)\n   - **Vị trí:** Tầng 2 - Tòa B\n   - **Sức chứa:** 30 người\n   - **Thiết bị:** Máy chiếu, Micro, Loa, Camera hội nghị\n   - **Khung giờ trống:** Từ **13:00**\n\n3. **Phòng A102** (Phòng họp A102)\n   - **Vị trí:** Tầng 1 - Tòa A\n   - **Sức chứa:** 10 người\n   - **Thiết bị:** TV, Bảng trắng\n   - **Khung giờ trống:** Từ **15:00**\n\nAnh/Chị có muốn đặt phòng nào ở trên không? Vui lòng cung cấp **mã phòng**, **thời gian bắt đầu** và **thời lượng sử dụng** để em hỗ trợ đặt phòng nhé!",
+    "latency_ms": 5031.02
+  },
+  {
+    "step": 1,
+    "query": "đặt cho tôi phòng có máy chiếu, tôi muốn sử dụng trong 2 giờ bắt đầu từ 13h",
+    "action_type": "TOOL_EXECUTION",
+    "tool_name": "book_room",
+    "arguments": {
+      "room_id": "A101",
+      "equipment": [
+        "Máy chiếu"
+      ],
+      "datetime_str": "13:00 15/09/2026",
+      "duration_hours": 2
+    },
+    "observation": {
+      "status": "SUCCESS",
+      "booking_id": "BK-A101-002",
+      "room_id": "A101",
+      "room_name": "Phòng họp A101",
+      "datetime": "13:00 15/09/2026",
+      "duration_hours": 2,
+      "equipment": [
+        "Máy chiếu"
+      ],
+      "message": "Đặt phòng A101 thành công vào lúc 13:00 15/09/2026 trong 2 giờ."
+    },
+    "latency_ms": 8002.99
+  },
+  {
+    "step": 2,
+    "query": "đặt cho tôi phòng có máy chiếu, tôi muốn sử dụng trong 2 giờ bắt đầu từ 13h",
+    "action_type": "FINAL_ANSWER",
+    "thought": "Gemini phản hồi trực tiếp bằng văn bản (không cần gọi công cụ).",
+    "output": "Em đã đặt phòng thành công cho Anh/Chị! Dưới đây là thông tin chi tiết:\n\n- **Mã đặt phòng:** `BK-A101-002`\n- **Tên phòng:** Phòng họp A101 (Tầng 1 - Tòa A)\n- **Thời gian bắt đầu:** 13:00 ngày 15/09/2026\n- **Thời lượng:** 2 giờ (13:00 - 15:00)\n- **Thiết bị yêu cầu:** Máy chiếu\n\nNếu Anh/Chị cần hỗ trợ thêm thông tin hoặc thay đổi gì khác, xin vui lòng cho em biết nhé!",
+    "latency_ms": 4465.32
+  },
+  {
+    "step": 1,
+    "query": "Chào bạn, bạn có thể giới thiệu các chức năng mà Trợ lý Đặt Phòng họp & Thiết bị có thể hỗ trợ không?",
+    "action_type": "FINAL_ANSWER",
+    "thought": "Gemini API vượt giới hạn quota nên tạm dừng xử lý yêu cầu và không sử dụng dữ liệu Mock.",
+    "output": "Hệ thống AI hiện đang tạm thời vượt giới hạn sử dụng của Gemini API. Vui lòng thử lại sau. Yêu cầu của bạn chưa được thực thi để tránh trả về thông tin không chính xác.",
+    "latency_ms": 1605.13
+  },
+  {
+    "step": 1,
+    "query": "Hãy kiểm tra giúp tôi phòng họp A101 có trống lúc 14:00 ngày 15/09/2026 không?",
+    "action_type": "FINAL_ANSWER",
+    "thought": "Gemini API vượt giới hạn quota nên tạm dừng xử lý yêu cầu và không sử dụng dữ liệu Mock.",
+    "output": "Hệ thống AI hiện đang tạm thời vượt giới hạn sử dụng của Gemini API. Vui lòng thử lại sau. Yêu cầu của bạn chưa được thực thi để tránh trả về thông tin không chính xác.",
+    "latency_ms": 982.76
+  },
+  {
+    "step": 1,
+    "query": "Hãy đặt phòng họp A101 cho tôi lúc 14:00 ngày 15/09/2026, thời lượng 2 giờ và cần máy chiếu.",
+    "action_type": "FINAL_ANSWER",
+    "thought": "Gemini API vượt giới hạn quota nên tạm dừng xử lý yêu cầu và không sử dụng dữ liệu Mock.",
+    "output": "Hệ thống AI hiện đang tạm thời vượt giới hạn sử dụng của Gemini API. Vui lòng thử lại sau. Yêu cầu của bạn chưa được thực thi để tránh trả về thông tin không chính xác.",
+    "latency_ms": 827.72
+  },
+  {
+    "step": 1,
+    "query": "Tôi cần một phòng họp cho 20 người lúc 14:00 ngày 15/09/2026 trong 2 giờ và cần máy chiếu. Hãy tìm phòng phù hợp và đặt giúp tôi.",
+    "action_type": "FINAL_ANSWER",
+    "thought": "Gemini API vượt giới hạn quota nên tạm dừng xử lý yêu cầu và không sử dụng dữ liệu Mock.",
+    "output": "Hệ thống AI hiện đang tạm thời vượt giới hạn sử dụng của Gemini API. Vui lòng thử lại sau. Yêu cầu của bạn chưa được thực thi để tránh trả về thông tin không chính xác.",
+    "latency_ms": 743.36
+  },
+  {
+    "step": 1,
+    "query": "Hãy kiểm tra và đặt giúp tôi phòng họp X999 lúc 10:00 ngày 16/09/2026.",
+    "action_type": "FINAL_ANSWER",
+    "thought": "Gemini API vượt giới hạn quota nên tạm dừng xử lý yêu cầu và không sử dụng dữ liệu Mock.",
+    "output": "Hệ thống AI hiện đang tạm thời vượt giới hạn sử dụng của Gemini API. Vui lòng thử lại sau. Yêu cầu của bạn chưa được thực thi để tránh trả về thông tin không chính xác.",
+    "latency_ms": 746.09
   }
 ]
